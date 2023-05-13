@@ -83,12 +83,12 @@ HAVING COUNT(full_name) > 1;
 
 # 11) Return the top diseases for each allergy skip null values.
 
-SELECT p.allergies, i.results, count(p.allergies)
+select p.allergies, i.results, max(count(p.allergies))
 from patients_info as p 
 right join inspections as i on p.id = i.patient_id
-group by i.results, p.allergies
+group by p.allergies
 having count(p.allergies) != 0 or p.allergies != null
-order by count(p.allergies) desc
+order by count(p.allergies) desc 
  ;
  
  # 12) We are looking for a specific patient that might have cancer following the criteria 

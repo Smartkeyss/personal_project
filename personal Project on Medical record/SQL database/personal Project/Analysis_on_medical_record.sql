@@ -110,6 +110,6 @@ select concat(first_name, " ", last_name) as full_name, i.results,
  and month(inspection_date) between 4 and 6
  and p.id % 2 = 1 and p.weight between 80 and 90
  and gender = 'F'
- and substring(p.first_name, 4, 4) = 'c'
+ and p.first_name like '___c%'
 
  
